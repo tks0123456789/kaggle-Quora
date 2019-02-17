@@ -60,16 +60,17 @@ for df_scores, config in zip(df_scores_s, config_s):
 df_one = pd.concat(sc_one_s, axis=1)
 df_avg = pd.concat(sc_avg_s, axis=1)
 
-title = args.metric
+title = 'Mean ' + args.metric
 if args.metric == 'F1':
     title += f', threshold={args.threshold:.02f}'
+title += f', {config["n_folds"]}-fold CV'
 
 fig, axes = plt.subplots(2, 1, figsize=(args.width, args.height))
 
 fig.suptitle(title)
 
 df_avg.plot(ax=axes[0])
-axes[0].set_title('Average Ensemble')
+axes[0].set_title(f'Average Ensemble of {config["n_models"]} models')
 axes[0].set_xticks([])
 axes[0].xaxis.set_label_text('')
 
