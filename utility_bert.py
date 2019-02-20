@@ -1,3 +1,5 @@
+# Most of the code is borrowed from https://github.com/huggingface/pytorch-pretrained-BERT/blob/master/examples/run_classifier.py.
+#
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function

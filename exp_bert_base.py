@@ -1,3 +1,6 @@
+# Most of the code is borrowed from https://github.com/huggingface/pytorch-pretrained-BERT/blob/master/examples/run_classifier.py.
+#
+
 import time
 import argparse
 import json
