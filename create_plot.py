@@ -12,7 +12,7 @@ parser.add_argument('--exp_num_s',
 parser.add_argument('--log_dir',
                     default='log/', type=str, required=False)
 parser.add_argument('--img_dir',
-                    default='./', type=str, required=False)
+                    default='./img', type=str, required=False)
 
 
 parser.add_argument('--width',
