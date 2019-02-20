@@ -1,0 +1,697 @@
+Better speed can be achieved with apex installed from https://www.github.com/nvidia/apex.
+Namespace(bert_model='bert-base-uncased', do_eval=False, do_lower_case=0, do_train=True, eval_batch_size=256, exp_name='base_uncased_4', exp_num=15, fold=0, fp16=False, gradient_accumulation_steps=4, learning_rate=5e-05, local_rank=-1, log_dir='log/', loss_scale=128, max_seq_length=50, n_bertlayers=4, n_dev=100000, n_folds=5, n_models=3, no_cuda=False, no_weight_decay=0, num_train_epochs=3.0, optimize_on_cpu=False, output_dir='./', pos_weight=None, seed=42, seed_split=4567, stratify=1, task_name='Quora', train_batch_size=128, warmup_proportion=0.1, weight_0=1.0, weight_1=1.0)
+Train shape :  (1306122, 3)
+
+Effective batch_size: 512
+02/19/2019 16:22:48 - INFO - pytorch_pretrained_bert.tokenization -   loading vocabulary file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt from cache at /home/tks/.pytorch_pretrained_bert/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+02/19/2019 16:24:00 - INFO - utility_bert -   *** Example ***
+02/19/2019 16:24:00 - INFO - utility_bert -   guid: 1f07d75fede800e7d1df
+02/19/2019 16:24:00 - INFO - utility_bert -   tokens: [CLS] what is lion tam ##ing ? [SEP]
+02/19/2019 16:24:00 - INFO - utility_bert -   input_ids: 101 2054 2003 7006 17214 2075 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:24:00 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:24:00 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:24:00 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 16:24:00 - INFO - utility_bert -   *** Example ***
+02/19/2019 16:24:00 - INFO - utility_bert -   guid: 0e5e0b66a17fb2b80c20
+02/19/2019 16:24:00 - INFO - utility_bert -   tokens: [CLS] what are the most common data needs for non profits ? [SEP]
+02/19/2019 16:24:00 - INFO - utility_bert -   input_ids: 101 2054 2024 1996 2087 2691 2951 3791 2005 2512 11372 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:24:00 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:24:00 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:24:00 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 16:24:00 - INFO - utility_bert -   *** Example ***
+02/19/2019 16:24:00 - INFO - utility_bert -   guid: e9b7b430888864987165
+02/19/2019 16:24:00 - INFO - utility_bert -   tokens: [CLS] what are some vacation packages that you recommend ? [SEP]
+02/19/2019 16:24:00 - INFO - utility_bert -   input_ids: 101 2054 2024 2070 10885 14555 2008 2017 16755 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:24:00 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:24:00 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:24:00 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 16:24:00 - INFO - utility_bert -   *** Example ***
+02/19/2019 16:24:00 - INFO - utility_bert -   guid: c236112ed981cd28356a
+02/19/2019 16:24:00 - INFO - utility_bert -   tokens: [CLS] what is the nassau county sales tax rate ? [SEP]
+02/19/2019 16:24:00 - INFO - utility_bert -   input_ids: 101 2054 2003 1996 14646 2221 4341 4171 3446 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:24:00 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:24:00 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:24:00 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 16:24:00 - INFO - utility_bert -   *** Example ***
+02/19/2019 16:24:00 - INFO - utility_bert -   guid: d642137782d449475858
+02/19/2019 16:24:00 - INFO - utility_bert -   tokens: [CLS] how does a sphere of influence relate to an american expansion ? [SEP]
+02/19/2019 16:24:00 - INFO - utility_bert -   input_ids: 101 2129 2515 1037 10336 1997 3747 14396 2000 2019 2137 4935 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:24:00 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:24:00 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:24:00 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 16:26:40 - INFO - utility_bert -   *** Example ***
+02/19/2019 16:26:40 - INFO - utility_bert -   guid: 14c71d5d5d052f551929
+02/19/2019 16:26:40 - INFO - utility_bert -   tokens: [CLS] what is the reason for gibraltar ’ s huge population ? [SEP]
+02/19/2019 16:26:40 - INFO - utility_bert -   input_ids: 101 2054 2003 1996 3114 2005 12272 1521 1055 4121 2313 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:40 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:40 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:40 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 16:26:40 - INFO - utility_bert -   *** Example ***
+02/19/2019 16:26:40 - INFO - utility_bert -   guid: 31a7f774b92c3f8b06de
+02/19/2019 16:26:40 - INFO - utility_bert -   tokens: [CLS] do you think rejection or breakup leads to focus ##sing on career ? [SEP]
+02/19/2019 16:26:40 - INFO - utility_bert -   input_ids: 101 2079 2017 2228 13893 2030 19010 5260 2000 3579 7741 2006 2476 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:40 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:40 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:40 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 16:26:40 - INFO - utility_bert -   *** Example ***
+02/19/2019 16:26:40 - INFO - utility_bert -   guid: 824843436610ab46ed4e
+02/19/2019 16:26:40 - INFO - utility_bert -   tokens: [CLS] how does the gender gap apply to retirement ? [SEP]
+02/19/2019 16:26:40 - INFO - utility_bert -   input_ids: 101 2129 2515 1996 5907 6578 6611 2000 5075 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:40 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:40 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:40 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 16:26:40 - INFO - utility_bert -   *** Example ***
+02/19/2019 16:26:40 - INFO - utility_bert -   guid: 66329bb6e3d64d9824e6
+02/19/2019 16:26:40 - INFO - utility_bert -   tokens: [CLS] what does this sentence mean " i ind ##ul ##ge you in the right to be wrong " ? [SEP]
+02/19/2019 16:26:40 - INFO - utility_bert -   input_ids: 101 2054 2515 2023 6251 2812 1000 1045 27427 5313 3351 2017 1999 1996 2157 2000 2022 3308 1000 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:40 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:40 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:40 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 16:26:40 - INFO - utility_bert -   *** Example ***
+02/19/2019 16:26:40 - INFO - utility_bert -   guid: 38c016f3766fa6b06311
+02/19/2019 16:26:40 - INFO - utility_bert -   tokens: [CLS] how do i practice sociology answer writing for ups ##c exam ? [SEP]
+02/19/2019 16:26:40 - INFO - utility_bert -   input_ids: 101 2129 2079 1045 3218 11507 3437 3015 2005 11139 2278 11360 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:40 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:40 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:40 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 16:26:57 - INFO - utility_bert -   *** Example ***
+02/19/2019 16:26:57 - INFO - utility_bert -   guid: 0000455dfa3e01eae3af
+02/19/2019 16:26:57 - INFO - utility_bert -   tokens: [CLS] can i convert mont ##ra he ##lic ##on d to a mountain bike by just changing the tyres ? [SEP]
+02/19/2019 16:26:57 - INFO - utility_bert -   input_ids: 101 2064 1045 10463 18318 2527 2002 10415 2239 1040 2000 1037 3137 7997 2011 2074 5278 1996 24656 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:57 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:57 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:57 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 16:26:57 - INFO - utility_bert -   *** Example ***
+02/19/2019 16:26:57 - INFO - utility_bert -   guid: 00004f9a462a357c33be
+02/19/2019 16:26:57 - INFO - utility_bert -   tokens: [CLS] is gaza slowly becoming auschwitz , da ##cha ##u or tre ##bl ##ink ##a for palestinians ? [SEP]
+02/19/2019 16:26:57 - INFO - utility_bert -   input_ids: 101 2003 14474 3254 3352 24363 1010 4830 7507 2226 2030 29461 16558 19839 2050 2005 21524 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:57 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:57 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:57 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 16:26:57 - INFO - utility_bert -   *** Example ***
+02/19/2019 16:26:57 - INFO - utility_bert -   guid: 0000559f875832745e2e
+02/19/2019 16:26:57 - INFO - utility_bert -   tokens: [CLS] is it crazy if i wash or wipe my groceries off ? ge ##rm ##s are everywhere . [SEP]
+02/19/2019 16:26:57 - INFO - utility_bert -   input_ids: 101 2003 2009 4689 2065 1045 9378 2030 13387 2026 26298 2125 1029 16216 10867 2015 2024 7249 1012 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:57 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:57 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:57 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 16:26:57 - INFO - utility_bert -   *** Example ***
+02/19/2019 16:26:57 - INFO - utility_bert -   guid: 000075f67dd595c3deb5
+02/19/2019 16:26:57 - INFO - utility_bert -   tokens: [CLS] what can you say about feminism ? [SEP]
+02/19/2019 16:26:57 - INFO - utility_bert -   input_ids: 101 2054 2064 2017 2360 2055 20050 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:57 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:57 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:57 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 16:26:57 - INFO - utility_bert -   *** Example ***
+02/19/2019 16:26:57 - INFO - utility_bert -   guid: 000076f3b42776c692de
+02/19/2019 16:26:57 - INFO - utility_bert -   tokens: [CLS] how were the calgary flames founded ? [SEP]
+02/19/2019 16:26:57 - INFO - utility_bert -   input_ids: 101 2129 2020 1996 10112 7311 2631 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:57 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:57 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 16:26:57 - INFO - utility_bert -   label: 0 (id = 0)
+Done preprocessing:301.8s
+02/19/2019 16:27:46 - INFO - pytorch_pretrained_bert.modeling -   loading archive file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased.tar.gz from cache at /home/tks/.pytorch_pretrained_bert/9c41111e2de84547a463fd39217199738d1e3deb72d4fec4399e6e241983c6f0.ae3cef932725ca7a30cdcb93fc6e09150a55e2a130ec7af63975a16c153ae2ba
+02/19/2019 16:27:46 - INFO - pytorch_pretrained_bert.modeling -   extracting archive file /home/tks/.pytorch_pretrained_bert/9c41111e2de84547a463fd39217199738d1e3deb72d4fec4399e6e241983c6f0.ae3cef932725ca7a30cdcb93fc6e09150a55e2a130ec7af63975a16c153ae2ba to temp dir /tmp/tmpwe_01ueb
+02/19/2019 16:27:48 - INFO - pytorch_pretrained_bert.modeling -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "max_position_embeddings": 512,
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+#Params: 52780033
+Epoch:1
+step:2000 loss:0.1490209 time:674.7s
+step:4000 loss:0.1263185 time:1349.7s
+step:6000 loss:0.1175878 time:2024.6s
+  F1:0.69399 threshold:0.39 AUC:0.96970 time:2802.6s
+Epoch:2
+step:2000 loss:0.0818273 time:674.9s
+step:4000 loss:0.0827335 time:1349.8s
+step:6000 loss:0.0824158 time:2024.5s
+  F1:0.69747 threshold:0.33 AUC:0.97099 time:2802.4s
+Epoch:3
+step:2000 loss:0.0665727 time:674.7s
+step:4000 loss:0.0665050 time:1349.5s
+step:6000 loss:0.0662230 time:2024.3s
+  F1:0.69175 threshold:0.26 AUC:0.96923 time:2802.9s
+02/19/2019 18:48:00 - INFO - pytorch_pretrained_bert.modeling -   loading archive file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased.tar.gz from cache at /home/tks/.pytorch_pretrained_bert/9c41111e2de84547a463fd39217199738d1e3deb72d4fec4399e6e241983c6f0.ae3cef932725ca7a30cdcb93fc6e09150a55e2a130ec7af63975a16c153ae2ba
+02/19/2019 18:48:00 - INFO - pytorch_pretrained_bert.modeling -   extracting archive file /home/tks/.pytorch_pretrained_bert/9c41111e2de84547a463fd39217199738d1e3deb72d4fec4399e6e241983c6f0.ae3cef932725ca7a30cdcb93fc6e09150a55e2a130ec7af63975a16c153ae2ba to temp dir /tmp/tmpoh3bw59t
+02/19/2019 18:48:03 - INFO - pytorch_pretrained_bert.modeling -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "max_position_embeddings": 512,
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+Epoch:1
+step:2000 loss:0.1527205 time:675.0s
+step:4000 loss:0.1285392 time:1350.0s
+step:6000 loss:0.1193685 time:2025.0s
+  F1:0.69235 threshold:0.28 AUC:0.96948 time:2803.6s
+Epoch:2
+step:2000 loss:0.0838624 time:675.0s
+step:4000 loss:0.0834693 time:1349.9s
+step:6000 loss:0.0831088 time:2025.0s
+  F1:0.69940 threshold:0.36 AUC:0.97113 time:2803.4s
+Epoch:3
+step:2000 loss:0.0683030 time:674.9s
+step:4000 loss:0.0676272 time:1349.7s
+step:6000 loss:0.0678247 time:2024.6s
+  F1:0.69595 threshold:0.35 AUC:0.96973 time:2802.8s
+02/19/2019 21:08:15 - INFO - pytorch_pretrained_bert.modeling -   loading archive file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased.tar.gz from cache at /home/tks/.pytorch_pretrained_bert/9c41111e2de84547a463fd39217199738d1e3deb72d4fec4399e6e241983c6f0.ae3cef932725ca7a30cdcb93fc6e09150a55e2a130ec7af63975a16c153ae2ba
+02/19/2019 21:08:15 - INFO - pytorch_pretrained_bert.modeling -   extracting archive file /home/tks/.pytorch_pretrained_bert/9c41111e2de84547a463fd39217199738d1e3deb72d4fec4399e6e241983c6f0.ae3cef932725ca7a30cdcb93fc6e09150a55e2a130ec7af63975a16c153ae2ba to temp dir /tmp/tmpwunbfw0d
+02/19/2019 21:08:18 - INFO - pytorch_pretrained_bert.modeling -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "max_position_embeddings": 512,
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+Epoch:1
+step:2000 loss:0.1521604 time:675.1s
+step:4000 loss:0.1286948 time:1350.2s
+step:6000 loss:0.1193821 time:2025.2s
+  F1:0.69273 threshold:0.23 AUC:0.96941 time:2803.6s
+Epoch:2
+step:2000 loss:0.0847905 time:675.2s
+step:4000 loss:0.0845365 time:1350.3s
+step:6000 loss:0.0838450 time:2025.5s
+  F1:0.69898 threshold:0.36 AUC:0.97130 time:2805.3s
+Epoch:3
+step:2000 loss:0.0677577 time:676.2s
+step:4000 loss:0.0677637 time:1352.5s
+step:6000 loss:0.0678291 time:2028.7s
+  F1:0.69440 threshold:0.39 AUC:0.96977 time:2809.1s
+
+Single
+            F1      AUC  threshold
+epoch                             
+1      0.69303  0.96953    0.29583
+2      0.69862  0.97114    0.35000
+3      0.69403  0.96958    0.33333
+
+Avg ensemble of 3models
+            F1      AUC
+epoch                  
+1      0.69829  0.97068
+2      0.70330  0.97230
+3      0.70082  0.97109 
+
+
+2804.0s/epoch
+Done: 7.1 hours
+Better speed can be achieved with apex installed from https://www.github.com/nvidia/apex.
+Namespace(bert_model='bert-base-multilingual-uncased', do_eval=False, do_lower_case=0, do_train=True, eval_batch_size=256, exp_name='multi_uncased_4', exp_num=16, fold=0, fp16=False, gradient_accumulation_steps=4, learning_rate=5e-05, local_rank=-1, log_dir='log/', loss_scale=128, max_seq_length=50, n_bertlayers=4, n_dev=100000, n_folds=5, n_models=3, no_cuda=False, no_weight_decay=0, num_train_epochs=3.0, optimize_on_cpu=False, output_dir='./', pos_weight=None, seed=42, seed_split=4567, stratify=1, task_name='Quora', train_batch_size=128, warmup_proportion=0.1, weight_0=1.0, weight_1=1.0)
+Train shape :  (1306122, 3)
+
+Effective batch_size: 512
+02/19/2019 23:28:42 - INFO - pytorch_pretrained_bert.tokenization -   loading vocabulary file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-multilingual-uncased-vocab.txt from cache at /home/tks/.pytorch_pretrained_bert/bb773818882b0524dc53a1b31a2cc95bc489f000e7e19773ba07846011a6c711.535306b226c42cebebbc0dabc83b92ab11260e9919e21e2ab0beb301f267b4c7
+02/19/2019 23:30:00 - INFO - utility_bert -   *** Example ***
+02/19/2019 23:30:00 - INFO - utility_bert -   guid: 1f07d75fede800e7d1df
+02/19/2019 23:30:00 - INFO - utility_bert -   tokens: [CLS] what is lion tamin ##g ? [SEP]
+02/19/2019 23:30:00 - INFO - utility_bert -   input_ids: 101 11523 10127 22311 23807 10251 136 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:30:00 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:30:00 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:30:00 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 23:30:00 - INFO - utility_bert -   *** Example ***
+02/19/2019 23:30:00 - INFO - utility_bert -   guid: 0e5e0b66a17fb2b80c20
+02/19/2019 23:30:00 - INFO - utility_bert -   tokens: [CLS] what are the most common data needs for non profits ? [SEP]
+02/19/2019 23:30:00 - INFO - utility_bert -   input_ids: 101 11523 10320 10103 10889 13449 10248 25970 10139 10466 87576 136 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:30:00 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:30:00 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:30:00 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 23:30:00 - INFO - utility_bert -   *** Example ***
+02/19/2019 23:30:00 - INFO - utility_bert -   guid: e9b7b430888864987165
+02/19/2019 23:30:00 - INFO - utility_bert -   tokens: [CLS] what are some vacation package ##s that you rec ##ommen ##d ? [SEP]
+02/19/2019 23:30:00 - INFO - utility_bert -   input_ids: 101 11523 10320 10970 86629 47709 10107 10203 10855 44909 55667 10163 136 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:30:00 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:30:00 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:30:00 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 23:30:00 - INFO - utility_bert -   *** Example ***
+02/19/2019 23:30:00 - INFO - utility_bert -   guid: c236112ed981cd28356a
+02/19/2019 23:30:00 - INFO - utility_bert -   tokens: [CLS] what is the nassau county sales tax rate ? [SEP]
+02/19/2019 23:30:00 - INFO - utility_bert -   input_ids: 101 11523 10127 10103 25956 10663 19637 22389 17593 136 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:30:00 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:30:00 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:30:00 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 23:30:00 - INFO - utility_bert -   *** Example ***
+02/19/2019 23:30:00 - INFO - utility_bert -   guid: d642137782d449475858
+02/19/2019 23:30:00 - INFO - utility_bert -   tokens: [CLS] how does a sphere of influence re ##late to an american expansion ? [SEP]
+02/19/2019 23:30:00 - INFO - utility_bert -   input_ids: 101 12548 14893 143 55903 10108 16575 11449 20849 10114 10144 10600 19650 136 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:30:00 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:30:00 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:30:00 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 23:32:44 - INFO - utility_bert -   *** Example ***
+02/19/2019 23:32:44 - INFO - utility_bert -   guid: 14c71d5d5d052f551929
+02/19/2019 23:32:44 - INFO - utility_bert -   tokens: [CLS] what is the reason for gibraltar [UNK] s huge population ? [SEP]
+02/19/2019 23:32:44 - INFO - utility_bert -   input_ids: 101 11523 10127 10103 23065 10139 36631 100 161 37985 10509 136 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:32:44 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:32:44 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:32:44 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 23:32:44 - INFO - utility_bert -   *** Example ***
+02/19/2019 23:32:44 - INFO - utility_bert -   guid: 31a7f774b92c3f8b06de
+02/19/2019 23:32:44 - INFO - utility_bert -   tokens: [CLS] do you think re ##ject ##ion or break ##up leads to focus ##sing on career ? [SEP]
+02/19/2019 23:32:44 - INFO - utility_bert -   input_ids: 101 10154 10855 21506 11449 67904 11210 10362 18979 15446 32675 10114 19753 17557 10125 13159 136 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:32:44 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:32:44 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:32:44 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 23:32:44 - INFO - utility_bert -   *** Example ***
+02/19/2019 23:32:44 - INFO - utility_bert -   guid: 824843436610ab46ed4e
+02/19/2019 23:32:44 - INFO - utility_bert -   tokens: [CLS] how does the gender gap apply to retirement ? [SEP]
+02/19/2019 23:32:44 - INFO - utility_bert -   input_ids: 101 12548 14893 10103 26974 19775 46328 10114 30811 136 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:32:44 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:32:44 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:32:44 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 23:32:44 - INFO - utility_bert -   *** Example ***
+02/19/2019 23:32:44 - INFO - utility_bert -   guid: 66329bb6e3d64d9824e6
+02/19/2019 23:32:44 - INFO - utility_bert -   tokens: [CLS] what does this sentence mean " i ind ##ul ##ge you in the right to be wrong " ? [SEP]
+02/19/2019 23:32:44 - INFO - utility_bert -   input_ids: 101 11523 14893 10372 45261 25659 107 151 24996 10686 10592 10855 10104 10103 12873 10114 10346 33413 107 136 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:32:44 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:32:44 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:32:44 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 23:32:44 - INFO - utility_bert -   *** Example ***
+02/19/2019 23:32:44 - INFO - utility_bert -   guid: 38c016f3766fa6b06311
+02/19/2019 23:32:44 - INFO - utility_bert -   tokens: [CLS] how do i practice sociology answer writing for ups ##c ex ##am ? [SEP]
+02/19/2019 23:32:44 - INFO - utility_bert -   input_ids: 101 12548 10154 151 16710 57208 42942 16155 10139 61729 10261 11460 11064 136 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:32:44 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:32:44 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:32:44 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 23:33:02 - INFO - utility_bert -   *** Example ***
+02/19/2019 23:33:02 - INFO - utility_bert -   guid: 0000455dfa3e01eae3af
+02/19/2019 23:33:02 - INFO - utility_bert -   tokens: [CLS] can i convert mont ##ra hel ##ico ##n d to a mountain bike by just changing the tyre ##s ? [SEP]
+02/19/2019 23:33:02 - INFO - utility_bert -   input_ids: 101 10743 151 81044 16403 10281 52364 12519 10115 146 10114 143 12309 59915 10151 12125 32330 10103 27862 10107 136 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:33:02 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:33:02 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:33:02 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 23:33:02 - INFO - utility_bert -   *** Example ***
+02/19/2019 23:33:02 - INFO - utility_bert -   guid: 00004f9a462a357c33be
+02/19/2019 23:33:02 - INFO - utility_bert -   tokens: [CLS] is gaza slowly becoming auschwitz , dachau or tre ##bli ##nka for palestinian ##s ? [SEP]
+02/19/2019 23:33:02 - INFO - utility_bert -   input_ids: 101 10127 40090 54818 19641 43595 117 78855 10362 11555 37407 21290 10139 51492 10107 136 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:33:02 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:33:02 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:33:02 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 23:33:02 - INFO - utility_bert -   *** Example ***
+02/19/2019 23:33:02 - INFO - utility_bert -   guid: 0000559f875832745e2e
+02/19/2019 23:33:02 - INFO - utility_bert -   tokens: [CLS] is it crazy if i wash or wi ##pe my gr ##oce ##ries off ? ger ##ms are every ##w ##here . [SEP]
+02/19/2019 23:33:02 - INFO - utility_bert -   input_ids: 101 10127 10197 26453 11526 151 58080 10362 19078 11599 11153 22153 46914 16362 11856 136 15079 12932 10320 13667 10650 30380 119 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:33:02 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:33:02 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:33:02 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 23:33:02 - INFO - utility_bert -   *** Example ***
+02/19/2019 23:33:02 - INFO - utility_bert -   guid: 000075f67dd595c3deb5
+02/19/2019 23:33:02 - INFO - utility_bert -   tokens: [CLS] what can you say about fem ##inis ##m ? [SEP]
+02/19/2019 23:33:02 - INFO - utility_bert -   input_ids: 101 11523 10743 10855 16497 10935 19827 27533 10150 136 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:33:02 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:33:02 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:33:02 - INFO - utility_bert -   label: 0 (id = 0)
+02/19/2019 23:33:02 - INFO - utility_bert -   *** Example ***
+02/19/2019 23:33:02 - INFO - utility_bert -   guid: 000076f3b42776c692de
+02/19/2019 23:33:02 - INFO - utility_bert -   tokens: [CLS] how were the calgary flames founded ? [SEP]
+02/19/2019 23:33:02 - INFO - utility_bert -   input_ids: 101 12548 10342 10103 36881 50380 14153 136 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:33:02 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:33:02 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/19/2019 23:33:02 - INFO - utility_bert -   label: 0 (id = 0)
+Done preprocessing:314.6s
+02/19/2019 23:33:54 - INFO - pytorch_pretrained_bert.modeling -   loading archive file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-multilingual-uncased.tar.gz from cache at /home/tks/.pytorch_pretrained_bert/437da855f7aeb6dcc47ee03b11ac55bfbc069d31354f6867f3b298aad8429925.dd2dce7e7331017693bd2230dbc8015b12a975201a420a856a6efbf7ae9d84c5
+02/19/2019 23:33:54 - INFO - pytorch_pretrained_bert.modeling -   extracting archive file /home/tks/.pytorch_pretrained_bert/437da855f7aeb6dcc47ee03b11ac55bfbc069d31354f6867f3b298aad8429925.dd2dce7e7331017693bd2230dbc8015b12a975201a420a856a6efbf7ae9d84c5 to temp dir /tmp/tmpw7t2to4s
+02/19/2019 23:33:58 - INFO - pytorch_pretrained_bert.modeling -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "max_position_embeddings": 512,
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 105879
+}
+
+#Params: 110654209
+Epoch:1
+step:2000 loss:0.1570598 time:701.8s
+step:4000 loss:0.1324899 time:1403.9s
+step:6000 loss:0.1228593 time:2106.0s
+  F1:0.68521 threshold:0.38 AUC:0.96751 time:2904.0s
+Epoch:2
+step:2000 loss:0.0889359 time:702.5s
+step:4000 loss:0.0887824 time:1405.0s
+step:6000 loss:0.0880628 time:2107.3s
+  F1:0.69112 threshold:0.36 AUC:0.96974 time:2904.6s
+Epoch:3
+step:2000 loss:0.0748593 time:701.9s
+step:4000 loss:0.0742422 time:1403.9s
+step:6000 loss:0.0738687 time:2106.0s
+  F1:0.68976 threshold:0.36 AUC:0.96816 time:2903.6s
+02/20/2019 01:59:16 - INFO - pytorch_pretrained_bert.modeling -   loading archive file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-multilingual-uncased.tar.gz from cache at /home/tks/.pytorch_pretrained_bert/437da855f7aeb6dcc47ee03b11ac55bfbc069d31354f6867f3b298aad8429925.dd2dce7e7331017693bd2230dbc8015b12a975201a420a856a6efbf7ae9d84c5
+02/20/2019 01:59:16 - INFO - pytorch_pretrained_bert.modeling -   extracting archive file /home/tks/.pytorch_pretrained_bert/437da855f7aeb6dcc47ee03b11ac55bfbc069d31354f6867f3b298aad8429925.dd2dce7e7331017693bd2230dbc8015b12a975201a420a856a6efbf7ae9d84c5 to temp dir /tmp/tmpwg0zlxtm
+02/20/2019 01:59:20 - INFO - pytorch_pretrained_bert.modeling -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "max_position_embeddings": 512,
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 105879
+}
+
+Epoch:1
+step:2000 loss:0.1514600 time:701.3s
+step:4000 loss:0.1303095 time:1402.5s
+step:6000 loss:0.1213895 time:2103.7s
+  F1:0.68165 threshold:0.40 AUC:0.96733 time:2900.7s
+Epoch:2
+step:2000 loss:0.0890373 time:702.0s
+step:4000 loss:0.0893482 time:1404.0s
+step:6000 loss:0.0889735 time:2106.0s
+  F1:0.69478 threshold:0.38 AUC:0.96922 time:2903.6s
+Epoch:3
+step:2000 loss:0.0751030 time:701.9s
+step:4000 loss:0.0749963 time:1403.9s
+step:6000 loss:0.0745060 time:2105.9s
+  F1:0.69300 threshold:0.36 AUC:0.96825 time:2903.4s
+02/20/2019 04:24:32 - INFO - pytorch_pretrained_bert.modeling -   loading archive file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-multilingual-uncased.tar.gz from cache at /home/tks/.pytorch_pretrained_bert/437da855f7aeb6dcc47ee03b11ac55bfbc069d31354f6867f3b298aad8429925.dd2dce7e7331017693bd2230dbc8015b12a975201a420a856a6efbf7ae9d84c5
+02/20/2019 04:24:32 - INFO - pytorch_pretrained_bert.modeling -   extracting archive file /home/tks/.pytorch_pretrained_bert/437da855f7aeb6dcc47ee03b11ac55bfbc069d31354f6867f3b298aad8429925.dd2dce7e7331017693bd2230dbc8015b12a975201a420a856a6efbf7ae9d84c5 to temp dir /tmp/tmpso0mm4yz
+02/20/2019 04:24:36 - INFO - pytorch_pretrained_bert.modeling -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "max_position_embeddings": 512,
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 105879
+}
+
+Epoch:1
+step:2000 loss:0.1454911 time:701.3s
+step:4000 loss:0.1273163 time:1402.5s
+step:6000 loss:0.1191523 time:2103.8s
+  F1:0.68351 threshold:0.41 AUC:0.96767 time:2900.9s
+Epoch:2
+step:2000 loss:0.0885792 time:701.1s
+step:4000 loss:0.0882389 time:1402.4s
+step:6000 loss:0.0876483 time:2103.6s
+  F1:0.69279 threshold:0.35 AUC:0.96948 time:2900.7s
+Epoch:3
+step:2000 loss:0.0735355 time:701.2s
+step:4000 loss:0.0734561 time:1402.5s
+step:6000 loss:0.0731639 time:2103.8s
+  F1:0.69107 threshold:0.38 AUC:0.96850 time:2900.9s
+
+Single
+            F1      AUC  threshold
+epoch                             
+1      0.68346  0.96750    0.39583
+2      0.69290  0.96948    0.36250
+3      0.69128  0.96830    0.36667
+
+Avg ensemble of 3models
+            F1      AUC
+epoch                  
+1      0.68973  0.96912
+2      0.69977  0.97083
+3      0.69859  0.97002 
+
+
+2902.5s/epoch
+Done: 7.4 hours
+Better speed can be achieved with apex installed from https://www.github.com/nvidia/apex.
+Namespace(bert_model='bert-base-uncased', do_eval=False, do_lower_case=0, do_train=True, eval_batch_size=128, exp_name='base_uncased_8', exp_num=17, fold=0, fp16=False, gradient_accumulation_steps=8, learning_rate=5e-05, local_rank=-1, log_dir='log/', loss_scale=128, max_seq_length=50, n_bertlayers=8, n_dev=100000, n_folds=5, n_models=3, no_cuda=False, no_weight_decay=0, num_train_epochs=2.0, optimize_on_cpu=False, output_dir='./', pos_weight=None, seed=42, seed_split=4567, stratify=1, task_name='Quora', train_batch_size=64, warmup_proportion=0.1, weight_0=1.0, weight_1=1.0)
+Train shape :  (1306122, 3)
+
+Effective batch_size: 512
+02/20/2019 06:49:47 - INFO - pytorch_pretrained_bert.tokenization -   loading vocabulary file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt from cache at /home/tks/.pytorch_pretrained_bert/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+02/20/2019 06:51:01 - INFO - utility_bert -   *** Example ***
+02/20/2019 06:51:01 - INFO - utility_bert -   guid: 1f07d75fede800e7d1df
+02/20/2019 06:51:01 - INFO - utility_bert -   tokens: [CLS] what is lion tam ##ing ? [SEP]
+02/20/2019 06:51:01 - INFO - utility_bert -   input_ids: 101 2054 2003 7006 17214 2075 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:51:01 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:51:01 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:51:01 - INFO - utility_bert -   label: 0 (id = 0)
+02/20/2019 06:51:01 - INFO - utility_bert -   *** Example ***
+02/20/2019 06:51:01 - INFO - utility_bert -   guid: 0e5e0b66a17fb2b80c20
+02/20/2019 06:51:01 - INFO - utility_bert -   tokens: [CLS] what are the most common data needs for non profits ? [SEP]
+02/20/2019 06:51:01 - INFO - utility_bert -   input_ids: 101 2054 2024 1996 2087 2691 2951 3791 2005 2512 11372 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:51:01 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:51:01 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:51:01 - INFO - utility_bert -   label: 0 (id = 0)
+02/20/2019 06:51:01 - INFO - utility_bert -   *** Example ***
+02/20/2019 06:51:01 - INFO - utility_bert -   guid: e9b7b430888864987165
+02/20/2019 06:51:01 - INFO - utility_bert -   tokens: [CLS] what are some vacation packages that you recommend ? [SEP]
+02/20/2019 06:51:01 - INFO - utility_bert -   input_ids: 101 2054 2024 2070 10885 14555 2008 2017 16755 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:51:01 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:51:01 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:51:01 - INFO - utility_bert -   label: 0 (id = 0)
+02/20/2019 06:51:01 - INFO - utility_bert -   *** Example ***
+02/20/2019 06:51:01 - INFO - utility_bert -   guid: c236112ed981cd28356a
+02/20/2019 06:51:01 - INFO - utility_bert -   tokens: [CLS] what is the nassau county sales tax rate ? [SEP]
+02/20/2019 06:51:01 - INFO - utility_bert -   input_ids: 101 2054 2003 1996 14646 2221 4341 4171 3446 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:51:01 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:51:01 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:51:01 - INFO - utility_bert -   label: 0 (id = 0)
+02/20/2019 06:51:01 - INFO - utility_bert -   *** Example ***
+02/20/2019 06:51:01 - INFO - utility_bert -   guid: d642137782d449475858
+02/20/2019 06:51:01 - INFO - utility_bert -   tokens: [CLS] how does a sphere of influence relate to an american expansion ? [SEP]
+02/20/2019 06:51:01 - INFO - utility_bert -   input_ids: 101 2129 2515 1037 10336 1997 3747 14396 2000 2019 2137 4935 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:51:01 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:51:01 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:51:01 - INFO - utility_bert -   label: 0 (id = 0)
+02/20/2019 06:53:50 - INFO - utility_bert -   *** Example ***
+02/20/2019 06:53:50 - INFO - utility_bert -   guid: 14c71d5d5d052f551929
+02/20/2019 06:53:50 - INFO - utility_bert -   tokens: [CLS] what is the reason for gibraltar ’ s huge population ? [SEP]
+02/20/2019 06:53:50 - INFO - utility_bert -   input_ids: 101 2054 2003 1996 3114 2005 12272 1521 1055 4121 2313 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:53:50 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:53:50 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:53:50 - INFO - utility_bert -   label: 0 (id = 0)
+02/20/2019 06:53:50 - INFO - utility_bert -   *** Example ***
+02/20/2019 06:53:50 - INFO - utility_bert -   guid: 31a7f774b92c3f8b06de
+02/20/2019 06:53:50 - INFO - utility_bert -   tokens: [CLS] do you think rejection or breakup leads to focus ##sing on career ? [SEP]
+02/20/2019 06:53:50 - INFO - utility_bert -   input_ids: 101 2079 2017 2228 13893 2030 19010 5260 2000 3579 7741 2006 2476 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:53:50 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:53:50 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:53:50 - INFO - utility_bert -   label: 0 (id = 0)
+02/20/2019 06:53:50 - INFO - utility_bert -   *** Example ***
+02/20/2019 06:53:50 - INFO - utility_bert -   guid: 824843436610ab46ed4e
+02/20/2019 06:53:50 - INFO - utility_bert -   tokens: [CLS] how does the gender gap apply to retirement ? [SEP]
+02/20/2019 06:53:50 - INFO - utility_bert -   input_ids: 101 2129 2515 1996 5907 6578 6611 2000 5075 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:53:50 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:53:50 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:53:50 - INFO - utility_bert -   label: 0 (id = 0)
+02/20/2019 06:53:50 - INFO - utility_bert -   *** Example ***
+02/20/2019 06:53:50 - INFO - utility_bert -   guid: 66329bb6e3d64d9824e6
+02/20/2019 06:53:50 - INFO - utility_bert -   tokens: [CLS] what does this sentence mean " i ind ##ul ##ge you in the right to be wrong " ? [SEP]
+02/20/2019 06:53:50 - INFO - utility_bert -   input_ids: 101 2054 2515 2023 6251 2812 1000 1045 27427 5313 3351 2017 1999 1996 2157 2000 2022 3308 1000 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:53:50 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:53:50 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:53:50 - INFO - utility_bert -   label: 0 (id = 0)
+02/20/2019 06:53:50 - INFO - utility_bert -   *** Example ***
+02/20/2019 06:53:50 - INFO - utility_bert -   guid: 38c016f3766fa6b06311
+02/20/2019 06:53:50 - INFO - utility_bert -   tokens: [CLS] how do i practice sociology answer writing for ups ##c exam ? [SEP]
+02/20/2019 06:53:50 - INFO - utility_bert -   input_ids: 101 2129 2079 1045 3218 11507 3437 3015 2005 11139 2278 11360 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:53:50 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:53:50 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:53:50 - INFO - utility_bert -   label: 0 (id = 0)
+02/20/2019 06:54:07 - INFO - utility_bert -   *** Example ***
+02/20/2019 06:54:07 - INFO - utility_bert -   guid: 0000455dfa3e01eae3af
+02/20/2019 06:54:07 - INFO - utility_bert -   tokens: [CLS] can i convert mont ##ra he ##lic ##on d to a mountain bike by just changing the tyres ? [SEP]
+02/20/2019 06:54:07 - INFO - utility_bert -   input_ids: 101 2064 1045 10463 18318 2527 2002 10415 2239 1040 2000 1037 3137 7997 2011 2074 5278 1996 24656 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:54:07 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:54:07 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:54:07 - INFO - utility_bert -   label: 0 (id = 0)
+02/20/2019 06:54:07 - INFO - utility_bert -   *** Example ***
+02/20/2019 06:54:07 - INFO - utility_bert -   guid: 00004f9a462a357c33be
+02/20/2019 06:54:07 - INFO - utility_bert -   tokens: [CLS] is gaza slowly becoming auschwitz , da ##cha ##u or tre ##bl ##ink ##a for palestinians ? [SEP]
+02/20/2019 06:54:07 - INFO - utility_bert -   input_ids: 101 2003 14474 3254 3352 24363 1010 4830 7507 2226 2030 29461 16558 19839 2050 2005 21524 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:54:07 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:54:07 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:54:07 - INFO - utility_bert -   label: 0 (id = 0)
+02/20/2019 06:54:07 - INFO - utility_bert -   *** Example ***
+02/20/2019 06:54:07 - INFO - utility_bert -   guid: 0000559f875832745e2e
+02/20/2019 06:54:07 - INFO - utility_bert -   tokens: [CLS] is it crazy if i wash or wipe my groceries off ? ge ##rm ##s are everywhere . [SEP]
+02/20/2019 06:54:07 - INFO - utility_bert -   input_ids: 101 2003 2009 4689 2065 1045 9378 2030 13387 2026 26298 2125 1029 16216 10867 2015 2024 7249 1012 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:54:07 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:54:07 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:54:07 - INFO - utility_bert -   label: 0 (id = 0)
+02/20/2019 06:54:07 - INFO - utility_bert -   *** Example ***
+02/20/2019 06:54:07 - INFO - utility_bert -   guid: 000075f67dd595c3deb5
+02/20/2019 06:54:07 - INFO - utility_bert -   tokens: [CLS] what can you say about feminism ? [SEP]
+02/20/2019 06:54:07 - INFO - utility_bert -   input_ids: 101 2054 2064 2017 2360 2055 20050 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:54:07 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:54:07 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:54:07 - INFO - utility_bert -   label: 0 (id = 0)
+02/20/2019 06:54:07 - INFO - utility_bert -   *** Example ***
+02/20/2019 06:54:07 - INFO - utility_bert -   guid: 000076f3b42776c692de
+02/20/2019 06:54:07 - INFO - utility_bert -   tokens: [CLS] how were the calgary flames founded ? [SEP]
+02/20/2019 06:54:07 - INFO - utility_bert -   input_ids: 101 2129 2020 1996 10112 7311 2631 1029 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:54:07 - INFO - utility_bert -   input_mask: 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:54:07 - INFO - utility_bert -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+02/20/2019 06:54:07 - INFO - utility_bert -   label: 0 (id = 0)
+Done preprocessing:315.0s
+02/20/2019 06:54:59 - INFO - pytorch_pretrained_bert.modeling -   loading archive file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased.tar.gz from cache at /home/tks/.pytorch_pretrained_bert/9c41111e2de84547a463fd39217199738d1e3deb72d4fec4399e6e241983c6f0.ae3cef932725ca7a30cdcb93fc6e09150a55e2a130ec7af63975a16c153ae2ba
+02/20/2019 06:54:59 - INFO - pytorch_pretrained_bert.modeling -   extracting archive file /home/tks/.pytorch_pretrained_bert/9c41111e2de84547a463fd39217199738d1e3deb72d4fec4399e6e241983c6f0.ae3cef932725ca7a30cdcb93fc6e09150a55e2a130ec7af63975a16c153ae2ba to temp dir /tmp/tmpd8cmbr57
+02/20/2019 06:55:02 - INFO - pytorch_pretrained_bert.modeling -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "max_position_embeddings": 512,
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+#Params: 81131521
+Epoch:1
+step:2000 loss:0.1560222 time:662.0s
+step:4000 loss:0.1309903 time:1324.4s
+step:6000 loss:0.1203497 time:1987.5s
+step:8000 loss:0.1143584 time:2650.8s
+step:10000 loss:0.1105851 time:3314.0s
+step:12000 loss:0.1077621 time:3977.2s
+step:14000 loss:0.1055758 time:4640.3s
+  F1:0.71150 threshold:0.39 AUC:0.97343 time:5497.3s
+Epoch:2
+step:2000 loss:0.0728505 time:663.4s
+step:4000 loss:0.0729371 time:1327.2s
+step:6000 loss:0.0735455 time:1990.7s
+step:8000 loss:0.0733274 time:2654.2s
+step:10000 loss:0.0729753 time:3317.4s
+step:12000 loss:0.0725051 time:3980.7s
+step:14000 loss:0.0724562 time:4644.0s
+  F1:0.71209 threshold:0.41 AUC:0.97433 time:5500.8s
+02/20/2019 09:58:24 - INFO - pytorch_pretrained_bert.modeling -   loading archive file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased.tar.gz from cache at /home/tks/.pytorch_pretrained_bert/9c41111e2de84547a463fd39217199738d1e3deb72d4fec4399e6e241983c6f0.ae3cef932725ca7a30cdcb93fc6e09150a55e2a130ec7af63975a16c153ae2ba
+02/20/2019 09:58:24 - INFO - pytorch_pretrained_bert.modeling -   extracting archive file /home/tks/.pytorch_pretrained_bert/9c41111e2de84547a463fd39217199738d1e3deb72d4fec4399e6e241983c6f0.ae3cef932725ca7a30cdcb93fc6e09150a55e2a130ec7af63975a16c153ae2ba to temp dir /tmp/tmpd396orey
+02/20/2019 09:58:26 - INFO - pytorch_pretrained_bert.modeling -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "max_position_embeddings": 512,
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+Epoch:1
+step:2000 loss:0.1512706 time:663.3s
+step:4000 loss:0.1291375 time:1326.7s
+step:6000 loss:0.1197474 time:1990.1s
+step:8000 loss:0.1142394 time:2653.5s
+step:10000 loss:0.1104920 time:3316.8s
+step:12000 loss:0.1078316 time:3980.2s
+step:14000 loss:0.1055145 time:4643.6s
+  F1:0.71116 threshold:0.39 AUC:0.97352 time:5500.5s
+Epoch:2
+step:2000 loss:0.0736968 time:663.5s
+step:4000 loss:0.0729463 time:1327.3s
+step:6000 loss:0.0726347 time:1991.0s
+step:8000 loss:0.0729319 time:2654.9s
+step:10000 loss:0.0729901 time:3318.5s
+step:12000 loss:0.0727603 time:3982.3s
+step:14000 loss:0.0726027 time:4646.0s
+  F1:0.71262 threshold:0.33 AUC:0.97398 time:5503.5s
+02/20/2019 13:01:53 - INFO - pytorch_pretrained_bert.modeling -   loading archive file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased.tar.gz from cache at /home/tks/.pytorch_pretrained_bert/9c41111e2de84547a463fd39217199738d1e3deb72d4fec4399e6e241983c6f0.ae3cef932725ca7a30cdcb93fc6e09150a55e2a130ec7af63975a16c153ae2ba
+02/20/2019 13:01:53 - INFO - pytorch_pretrained_bert.modeling -   extracting archive file /home/tks/.pytorch_pretrained_bert/9c41111e2de84547a463fd39217199738d1e3deb72d4fec4399e6e241983c6f0.ae3cef932725ca7a30cdcb93fc6e09150a55e2a130ec7af63975a16c153ae2ba to temp dir /tmp/tmpxczee7jq
+02/20/2019 13:01:55 - INFO - pytorch_pretrained_bert.modeling -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "max_position_embeddings": 512,
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+Epoch:1
+step:2000 loss:0.1665870 time:663.8s
+step:4000 loss:0.1358666 time:1327.7s
+step:6000 loss:0.1242369 time:1991.6s
+step:8000 loss:0.1177956 time:2655.6s
+step:10000 loss:0.1135568 time:3319.6s
+step:12000 loss:0.1103192 time:3983.8s
+step:14000 loss:0.1077781 time:4647.6s
+  F1:0.70781 threshold:0.30 AUC:0.97317 time:5505.5s
+Epoch:2
+step:2000 loss:0.0746994 time:664.0s
+step:4000 loss:0.0745220 time:1327.8s
+step:6000 loss:0.0741232 time:1991.8s
+step:8000 loss:0.0735553 time:2655.5s
+step:10000 loss:0.0733246 time:3319.3s
+step:12000 loss:0.0732980 time:3983.2s
+step:14000 loss:0.0732411 time:4646.9s
+  F1:0.71106 threshold:0.34 AUC:0.97376 time:5504.1s
+
+Single
+            F1      AUC  threshold
+epoch                             
+1      0.71016  0.97337    0.35833
+2      0.71192  0.97402    0.35833
+
+Avg ensemble of 3 models
+            F1      AUC
+epoch                  
+1      0.71572  0.97444
+2      0.71639  0.97508 
+
+
+5502.0s/epoch
+Done: 9.3 hours

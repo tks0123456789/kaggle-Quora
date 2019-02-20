@@ -1,3 +1,4 @@
+exp001
 n_embed=1
        f1_avg_best  th_avg_best  auc_avg  auc_one
 epoch                                            
@@ -35,6 +36,7 @@ epoch
 9          0.68463      0.68472      0.68478      0.68471      0.68463
 10         0.68111      0.68123      0.68124      0.68109      0.68087 
 
+exp002
 Baseline
        f1_avg_best  th_avg_best  auc_avg  auc_one
 epoch                                            
@@ -72,6 +74,7 @@ epoch
 9          0.68495      0.68502      0.68499      0.68486      0.68468
 10         0.68073      0.68077      0.68065      0.68045      0.68020 
 
+exp003
 n_embed=3
        f1_avg_best  th_avg_best  auc_avg  auc_one
 epoch                                            
@@ -109,6 +112,7 @@ epoch
 9          0.68483      0.68487      0.68493      0.68478      0.68461
 10         0.68015      0.68017      0.68003      0.67996      0.67969 
 
+exp004
 n_embed=4
        f1_avg_best  th_avg_best  auc_avg  auc_one
 epoch                                            
@@ -146,6 +150,7 @@ epoch
 9          0.68403      0.68410      0.68410      0.68396      0.68372
 10         0.67961      0.67958      0.67949      0.67932      0.67903 
 
+exp005
 mf=80k
        f1_avg_best  th_avg_best  auc_avg  auc_one
 epoch                                            
@@ -183,6 +188,7 @@ epoch
 9          0.68460      0.68472      0.68469      0.68454      0.68430
 10         0.68014      0.68020      0.68009      0.67998      0.67972 
 
+exp006
 mf=100k
        f1_avg_best  th_avg_best  auc_avg  auc_one
 epoch                                            
@@ -220,6 +226,7 @@ epoch
 9          0.68519      0.68521      0.68528      0.68526      0.68504
 10         0.68091      0.68095      0.68085      0.68068      0.68043 
 
+exp007
 mf=110k
        f1_avg_best  th_avg_best  auc_avg  auc_one
 epoch                                            
@@ -257,6 +264,7 @@ epoch
 9          0.68479      0.68496      0.68504      0.68502      0.68490
 10         0.68057      0.68065      0.68057      0.68045      0.68019 
 
+exp008
 mf=120k
        f1_avg_best  th_avg_best  auc_avg  auc_one
 epoch                                            
@@ -294,6 +302,7 @@ epoch
 9          0.68516      0.68527      0.68529      0.68512      0.68504
 10         0.68093      0.68091      0.68084      0.68068      0.68050 
 
+exp009
 mf=130k
        f1_avg_best  th_avg_best  auc_avg  auc_one
 epoch                                            
@@ -331,6 +340,7 @@ epoch
 9          0.68514      0.68525      0.68522      0.68511      0.68502
 10         0.68089      0.68086      0.68072      0.68063      0.68041 
 
+exp010
 mf=140k
        f1_avg_best  th_avg_best  auc_avg  auc_one
 epoch                                            
@@ -368,6 +378,7 @@ epoch
 9          0.68514      0.68521      0.68520      0.68523      0.68510
 10         0.68073      0.68083      0.68081      0.68073      0.68058 
 
+exp011
 mf=150k
        f1_avg_best  th_avg_best  auc_avg  auc_one
 epoch                                            
@@ -405,6 +416,7 @@ epoch
 9          0.68531      0.68540      0.68538      0.68527      0.68507
 10         0.68113      0.68111      0.68109      0.68094      0.68068 
 
+exp012
 PME without ReLU
        f1_avg_best  th_avg_best  auc_avg  auc_one
 epoch                                            
@@ -442,6 +454,7 @@ epoch
 9          0.68348      0.68371      0.68375      0.68373      0.68350
 10         0.68064      0.68075      0.68072      0.68053      0.68020 
 
+exp013
 No EMA
        f1_avg_best  th_avg_best  auc_avg  auc_one
 epoch                                            
