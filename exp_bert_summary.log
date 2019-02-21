@@ -1,5 +1,5 @@
 exp014
-2019/02/19 3.8h
+2019/02/19 3.8h, 1486.3s/epoch
 bert_base_uncased bottom 2 layers
 
 Single
@@ -22,7 +22,7 @@ epoch
 3      0.68865  0.96805 
 
 exp015
-2019/02/19 7.1h
+2019/02/19 7.1h, 2804.0s/epoch
 bert_base_uncased, n_bertlayers=4
 Single
             F1      AUC  threshold
@@ -39,7 +39,7 @@ epoch
 3      0.70082  0.97109 
 
 exp016
-2019/02/20 7.4h
+2019/02/20 7.4h, 2902.5s/epoch
 bert-base-multilingual-uncased, n_bertlayers=4
 Single
             F1      AUC  threshold
@@ -56,7 +56,7 @@ epoch
 3      0.69859  0.97002 
 
 exp017
-2019/02/20 9.3h
+2019/02/20 9.3h, 5502.0s/epoch
 bert_base_uncased, n_bertlayers=8
 Single
             F1      AUC  threshold
@@ -70,6 +70,38 @@ epoch
 1      0.71572  0.97444
 2      0.71639  0.97508 
 
-exp019
+
+exp018
 bert-base-multilingual-uncased, n_bertlayers=8
-2019/02/20-21
+2019/02/20-21 9.5h, 5622.4s/epoch
+Single
+            F1      AUC  threshold
+epoch                             
+1      0.69433  0.97007    0.40000
+2      0.70182  0.97173    0.35417
+
+Avg ensemble of 3 models
+            F1      AUC
+epoch                  
+1      0.70036  0.97169
+2      0.70856  0.97305
+
+exp019
+bert_base_uncased, n_bertlayers=12
+2019/02/21 13.7h, 8134.4s/epoch
+
+Single
+            F1      AUC  threshold
+epoch                             
+1      0.71911  0.97524    0.42500
+2      0.72173  0.97537    0.34583
+
+Avg ensemble of 3 models
+            F1      AUC
+epoch                  
+1      0.72492  0.97650
+2      0.72632  0.97673 
+
+exp020
+bert-base-multilingual-uncased, n_bertlayers=12
+2019/02/21-22 
