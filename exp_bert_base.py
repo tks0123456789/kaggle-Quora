@@ -68,7 +68,8 @@ parser.add_argument("--max_seq_length",
                     "than this will be padded.")
 parser.add_argument("--do_lower_case",
                     default=0,
-                    type=int)
+                    type=int,
+                    help="0 or 1, Ignored if bert_model=*_uncased")
 parser.add_argument("--do_train",
                     default=True,
                     action='store_true',
@@ -81,10 +82,10 @@ parser.add_argument("--train_batch_size",
                     default=32,
                     type=int,
                     help="Total batch size for training.")
-parser.add_argument("--eval_batch_size",
-                    default=32,
-                    type=int,
-                    help="Total batch size for eval.")
+# parser.add_argument("--eval_batch_size",
+#                     default=32,
+#                     type=int,
+#                     help="Total batch size for eval.")
 parser.add_argument("--learning_rate",
                     default=5e-5,
                     type=float,
@@ -162,9 +163,6 @@ parser.add_argument('--log_dir',
 
 args = parser.parse_args()
 
-with open(args.log_dir + f'exp{args.exp_num:03d}.json', 'w') as f:
-    json.dump(vars(args), f, indent=4)
-
 
 device = torch.device("cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu")
 
@@ -197,12 +195,18 @@ n_models = args.n_models
 
 args.eval_batch_size = 2 * args.train_batch_size
 
+if modelname.split('-')[-1] == 'uncased':
+    args.do_lower_case = 1
+
 if args.weight_0 != args.weight_1:
     args.pos_weight = torch.Tensor([args.weight_1 / args.weight_0]).to(device)
 else:
     args.pos_weight = None
 
+
 print(args)
+with open(args.log_dir + f'exp{args.exp_num:03d}.json', 'w') as f:
+    json.dump(vars(args), f, indent=4)
 
 
 def sigmoid(x):
@@ -311,8 +315,7 @@ val_df = train_df.loc[valid_idx]
 
 # Load pre-trained model tokenizer (vocabulary)
 def get_loader_s(modelname):
-    do_lower_case = modelname.split('-')[-1] == 'uncased' or args.do_lower_case > 0
-    tokenizer = BertTokenizer.from_pretrained(modelname, do_lower_case=do_lower_case)
+    tokenizer = BertTokenizer.from_pretrained(modelname, do_lower_case=args.do_lower_case)
 
     processor = QuoraProcessor()
     tr_examples = processor._create_examples(tr_df)
