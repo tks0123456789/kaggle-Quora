@@ -1,16 +1,18 @@
 import time
+from datetime import datetime
 import numpy as np
 from sklearn.metrics import f1_score
 
 
 def disp_elapsed(t0):
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     elapsed_seconds = time.time() - t0
     if elapsed_seconds < 60:
-        print("Done: {0:.1f} seconds".format(elapsed_seconds))
+        print(f"{now}  {elapsed_seconds:.1f} seconds")
     elif elapsed_seconds < 3600:
-        print("Done: {0:.1f} minutes".format(elapsed_seconds / 60))
+        print(f"{now}  {elapsed_seconds / 60:.1f} minutes")
     else:
-        print("Done: {0:.1f} hours".format(elapsed_seconds / (60 * 60)))
+        print(f"{now}  {elapsed_seconds / (60 * 60):.1f} hours")
 
 
 def f1_best(y, pred, thresh_s=None):
