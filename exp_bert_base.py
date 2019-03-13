@@ -236,7 +236,7 @@ def run_epoch(model, dataloader, optimizer, criterion, args, callbacks=None):
     gradient_accumulation_steps = args.gradient_accumulation_steps
     t1 = time.time()
     tr_loss = 0
-    for step, batch in enumerate(tr_dataloader):
+    for step, batch in enumerate(dataloader):
         batch = tuple(t.to(device) for t in batch)
         input_ids, input_mask, segment_ids, label_ids = batch
         label_ids = label_ids.float()
